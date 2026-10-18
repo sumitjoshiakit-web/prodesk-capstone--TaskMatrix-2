@@ -1,0 +1,1 @@
+"use client";import {create} from "zustand";export type AuthUser={id:string;email:string|null;name:string|null};type Store={user:AuthUser|null;setUser:(user:AuthUser|null)=>void;clearUser:()=>void};export const useAuthStore=create<Store>((set)=>({user:null,setUser:(user)=>set({user}),clearUser:()=>set({user:null})}));
