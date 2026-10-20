@@ -38,12 +38,20 @@ function PasswordField({
         <button
           className="password-toggle"
           type="button"
-          aria-label={visible ? `Hide ${label.toLowerCase()}` : `Show ${label.toLowerCase()}`}
+          aria-label={
+            visible
+              ? `Hide ${label.toLowerCase()}`
+              : `Show ${label.toLowerCase()}`
+          }
           aria-pressed={visible}
           title={visible ? "Hide password" : "Show password"}
           onClick={() => setVisible((current) => !current)}
         >
-          {visible ? <EyeOff size={17} aria-hidden="true" /> : <Eye size={17} aria-hidden="true" />}
+          {visible ? (
+            <EyeOff size={17} aria-hidden="true" />
+          ) : (
+            <Eye size={17} aria-hidden="true" />
+          )}
         </button>
       </span>
     </div>
@@ -72,15 +80,25 @@ export function LoginForm({ next = "/dashboard" }: { next?: string }) {
         autoComplete="current-password"
         placeholder="Enter your password"
       />
-      {state.error && <p className="notice error" role="alert">{state.error}</p>}
+      {state.error && (
+        <p className="notice error" role="alert">
+          {state.error}
+        </p>
+      )}
       <button className="button primary full" disabled={pending}>
         {pending ? (
-          <><LoaderCircle className="spin" size={18} /> Signing in…</>
+          <>
+            <LoaderCircle className="spin" size={18} /> Signing in…
+          </>
         ) : (
-          <>Sign in <ArrowRight size={18} /></>
+          <>
+            Sign in <ArrowRight size={18} />
+          </>
         )}
       </button>
-      <p className="form-foot">New to TaskMatrix? <Link href="/register">Create an account</Link></p>
+      <p className="form-foot">
+        New to TaskMatrix? <Link href="/register">Create an account</Link>
+      </p>
     </form>
   );
 }
@@ -124,17 +142,34 @@ export function RegisterForm() {
         placeholder="Repeat your password"
         minLength={8}
       />
-      <p className="password-hint">Use at least 8 characters. You can reveal the password to check it before submitting.</p>
-      {state.error && <p className="notice error" role="alert">{state.error}</p>}
-      {state.success && <p className="notice success" role="status">{state.success}</p>}
+      <p className="password-hint">
+        Use at least 8 characters. You can reveal the password to check it
+        before submitting.
+      </p>
+      {state.error && (
+        <p className="notice error" role="alert">
+          {state.error}
+        </p>
+      )}
+      {state.success && (
+        <p className="notice success" role="status">
+          {state.success}
+        </p>
+      )}
       <button className="button primary full" disabled={pending}>
         {pending ? (
-          <><LoaderCircle className="spin" size={18} /> Creating account…</>
+          <>
+            <LoaderCircle className="spin" size={18} /> Creating account…
+          </>
         ) : (
-          <>Create account <ArrowRight size={18} /></>
+          <>
+            Create account <ArrowRight size={18} />
+          </>
         )}
       </button>
-      <p className="form-foot">Already have an account? <Link href="/login">Sign in</Link></p>
+      <p className="form-foot">
+        Already have an account? <Link href="/login">Sign in</Link>
+      </p>
     </form>
   );
 }
