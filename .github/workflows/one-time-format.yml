@@ -1,0 +1,35 @@
+name: One-time Prettier formatting
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  format:
+    if: "!contains(github.event.head_commit.message, 'style: format Sprint 14 source')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Format source and documentation
+        run: npx --yes prettier@3.6.2 --write "**/*.{js,jsx,ts,tsx,mjs,cjs,mts,cts,json,css,md,yml,yaml}"
+      - name: Commit formatted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --cached --quiet; then
+            echo "No formatting changes."
+          else
+            git commit -m "style: format Sprint 14 source"
+            git push origin main
+          fi
