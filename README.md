@@ -1,5 +1,11 @@
 # TaskMatrix — Sprint 14 MVP
 
+**Capstone continuity**
+- Sprint 13 planning / PRD / wireframes: [prodesk-capstone-TaskMatrix1](https://github.com/sumitjoshiakit-web/prodesk-capstone-TaskMatrix1)
+- Sprint 15 CRUD extension: [prodesk-capstone-TaskMatrix3](https://github.com/sumitjoshiakit-web/prodesk-capstone-TaskMatrix3)
+
+Sprint 13 initially proposed React/Vite + Express + MongoDB. During Sprint 14 implementation, the stack was revised to Next.js App Router + Supabase Auth/Postgres; Sprint 15 continues this revised architecture.
+
 **Week 14 · Track A: Next.js Authentication Architecture & Route Guards**
 
 This walking skeleton provides account registration, sign-in, protected routing, and a responsive dashboard shell.
@@ -40,13 +46,17 @@ Never commit real credentials. If email confirmation is enabled, confirm the ema
 | `/register`  | Public    | Create account          |
 | `/dashboard` | Protected | Verified user dashboard |
 
+## Deployment status
+
+No verified public deployment URL is recorded in this README. If the sprint reviewer expects a live URL, deploy the current commit to Vercel, configure the Supabase public environment variables and Auth redirect URLs, verify the deployed flow, and add the confirmed URL here.
+
 ## Submission verification
 
 - [ ] Register a new user and verify it appears in Supabase Authentication.
 - [ ] Sign in and confirm the dashboard displays the current user's name/email.
 - [ ] Visit `/dashboard` in a signed-out/incognito session and confirm redirect to login.
 - [ ] Sign out and confirm the dashboard is protected again.
-- [ ] Run `npm run lint` and `npm run build` after setting environment variables.
+- [ ] Run `npm run lint` and `npm run build` after setting environment variables on the final commit.
 
 ## Sprint boundary
 
